@@ -1,8 +1,19 @@
-name: "Hello Action"
-description: "Prints a hello message"
+name: "Copyright Check"
+description: "Checks that all files contain 'Copyright MyCompany'"
 
 runs:
   using: "composite"
   steps:
-    - run: echo "Hello from my external Action!"
+    - name: Check for Copyright
       shell: bash
+      run: |
+        echo "🔍 Checking for 'Copyright MyCompany'..."
+        missing_files=$(grep -L -R "Copyright MyCompany" . || true)
+
+        if [ -n "$missing_files" ]; then
+          echo "❌ The following files do NOT contain 'Copyright MyCompany':"
+          echo "$missing_files"
+          exit 1
+        fi
+
+        echo "✅ All files contain 'Copyright MyCompany'"
