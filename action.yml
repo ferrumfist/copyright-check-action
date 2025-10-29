@@ -1,0 +1,8 @@
+name: "Hello Action"
+description: "Prints a hello message"
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo "Hello from my external Action!"
+      shell: bash
