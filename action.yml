@@ -9,7 +9,7 @@ on:
       copyright_line:
         description: 'Copyright to look for in files'
         required: false
-        default: "Copyright"
+        default: "Copyright $(date -u +'%Y')"
 
 runs:
   using: "composite"
