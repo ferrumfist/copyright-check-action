@@ -1,5 +1,15 @@
+# Copyright 2025
+
 name: "Copyright Check"
 description: "Checks that all files contain 'Copyright MyCompany'"
+
+on:
+  workflow_dispatch:
+    inputs:
+      copyright_line:
+        description: 'Copyright to look for in files'
+        required: false
+        default: "Copyright $(date -u +'%Y')"
 
 runs:
   using: "composite"
@@ -7,13 +17,7 @@ runs:
     - name: Check for Copyright
       shell: bash
       run: |
-        echo "🔍 Checking for 'Copyright MyCompany'..."
-        missing_files=$(grep -L -R "Copyright MyCompany" . || true)
-
-        if [ -n "$missing_files" ]; then
-          echo "❌ The following files do NOT contain 'Copyright MyCompany':"
-          echo "$missing_files"
-          exit 1
-        fi
-
-        echo "✅ All files contain 'Copyright MyCompany'"
+        chmod +x scripts/check_copyright.sh
+        ./scr/check_copyright.sh "$COPYRIGHT_LINE"
+      env:
+        COPYRIGHT_LINE: ${{ github.event.inputs.copyright_line }}
