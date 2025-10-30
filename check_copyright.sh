@@ -16,7 +16,7 @@ FILES=$(find . -type f |
     grep -E "\.($SUPPORTED_EXTENSIONS)$" |
     grep -vE "$BLACKLIST_PATTERNS" |
     (while read -r file; do [ -f "$file" ] && echo "$file"; done || true) |
-    xargs -r grep -L "$COPYRIGHT_LINE" |
+    xargs -r grep -Ls "$COPYRIGHT_LINE" |
     cat)
 
 if [ -n "$FILES" ]; then
