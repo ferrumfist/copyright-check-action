@@ -9,17 +9,17 @@ inputs:
     required: false
     default: "Copyright"
 
-runs:
-  using: "composite"
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v5
+  runs:
+    using: "composite"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
 
-    - name: Check for Copyright
-      shell: bash
-      run: |
-        chmod +x ${{ github.action_path }}/check_copyright.sh
-        cd ${{ github.workspace }}
-        ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
-      env:
-        COPYRIGHT_LINE: ${{ github.event.inputs.copyright_line }}
+      - name: Check for Copyright
+        shell: bash
+        run: |
+          chmod +x ${{ github.action_path }}/check_copyright.sh
+          cd ${{ github.workspace }}
+          ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
+        env:
+          COPYRIGHT_LINE: ${{ github.event.inputs.copyright_line }}
