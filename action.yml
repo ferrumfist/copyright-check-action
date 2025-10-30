@@ -9,7 +9,7 @@ on:
       copyright_line:
         description: 'Copyright to look for in files'
         required: false
-        default: "Copyright $(date -u +'%Y')"
+        default: "Copyright"
 
 runs:
   using: "composite"
@@ -21,6 +21,6 @@ runs:
       shell: bash
       run: |
         chmod +x ${{ github.action_path }}/check_copyright.sh
-        COPYRIGHT_LINE="${{ github.event.inputs.copyright_line || 'Copyright' }}"
+        COPYRIGHT_LINE="${{ github.event.inputs.copyright_line }}"
         cd ${{ github.workspace }}
         ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
