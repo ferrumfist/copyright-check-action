@@ -17,6 +17,8 @@ runs:
     - name: Check for Copyright
       shell: bash
       run: |
+        pwd
+        ls -R
         chmod +x ./src/check_copyright.sh
         ./src/check_copyright.sh "$COPYRIGHT_LINE"
       env:
