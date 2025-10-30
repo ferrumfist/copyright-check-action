@@ -2,6 +2,8 @@
 echo "Working directory: $(ls -ln)"
 COPYRIGHT_LINE="${1}"
 
+echo "COPYRIGHT_LINE is $COPYRIGHT_LINE"
+
 SUPPORTED_EXTENSIONS="bat|c|cc|cd|cjs|config|cpp|cs|css|dist|go|h|hpp|htm|html|in|ini|js|l|less|map|mjs|php|phtml|pl|pm|py|sh|sj|sql|tcc|tpl|ts|tsx|vbs|wxi|wxs|xml|xsd|xsl|xslt|java|yaml|toml|yml"
 
 if [ -f .copyrightsignore ]; then
