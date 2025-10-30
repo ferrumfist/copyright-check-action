@@ -16,8 +16,7 @@ FILES=$(find . -type f |
     grep -E "\.($SUPPORTED_EXTENSIONS)$" |
     grep -vE "$BLACKLIST_PATTERNS" |
     (while read -r file; do [ -f "$file" ] && echo "$file"; done || true) |
-    xargs -r grep -Ls "$COPYRIGHT_LINE" |
-    cat)
+    xargs -r grep -L "$COPYRIGHT_LINE")
 
 if [ -n "$FILES" ]; then
   echo -e "You must add \"$COPYRIGHT_LINE\" to the following files: \n$FILES"
