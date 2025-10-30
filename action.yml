@@ -3,13 +3,11 @@
 name: "Copyright Check"
 description: "Checks that all files contain 'Copyright MyCompany'"
 
-on:
-  workflow_dispatch:
-    inputs:
-      copyright_line:
-        description: 'Copyright to look for in files'
-        required: false
-        default: "Copyright"
+inputs:
+  copyright_line:
+    description: 'Copyright to look for in files'
+    required: false
+    default: "Copyright"
 
 runs:
   using: "composite"
