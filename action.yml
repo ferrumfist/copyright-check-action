@@ -20,7 +20,6 @@ runs:
     - name: Check for Copyright
       shell: bash
       run: |
-        echo "Working directory: $(ls -ln)"
         chmod +x ${{ github.action_path }}/check_copyright.sh
         cd ${{ github.workspace }}
         ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
