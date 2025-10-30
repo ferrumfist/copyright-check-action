@@ -22,6 +22,4 @@ runs:
       run: |
         chmod +x ${{ github.action_path }}/check_copyright.sh
         cd ${{ github.workspace }}
-        ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
-      env:
-        COPYRIGHT_LINE: ${{ github.event.inputs.copyright_line }}
+        ${{ github.action_path }}/check_copyright.sh "${{ github.event.inputs.copyright_line }}"
