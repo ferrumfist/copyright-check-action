@@ -16,13 +16,11 @@ runs:
   steps:
     - name: Checkout repository
       uses: actions/checkout@v5
-      with:
-        ref: '${{ github.event.pull_request.head.sha }}'
 
     - name: Check for Copyright
       shell: bash
       run: |
-        pwd
+        echo "Working directory: $(pwd)"
         chmod +x ${{ github.action_path }}/check_copyright.sh
         ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
       env:
