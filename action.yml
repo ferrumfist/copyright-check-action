@@ -20,9 +20,7 @@ runs:
     - name: Check for Copyright
       shell: bash
       run: |
-        pwd
-        ls -R
-        chmod +x ./src/check_copyright.sh
-        ./src/check_copyright.sh "$COPYRIGHT_LINE"
+        chmod +x ${{ github.action_path }}/check_copyright.sh
+        ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
       env:
         COPYRIGHT_LINE: ${{ github.event.inputs.copyright_line }}
