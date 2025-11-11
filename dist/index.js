@@ -27424,14 +27424,31 @@ module.exports = parseParams
 /******/ 
 /************************************************************************/
 var __webpack_exports__ = {};
-/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(7484);
+/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(9896);
+/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_1__ = __nccwpck_require__(6928);
+/* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_2__ = __nccwpck_require__(7484);
+
+
 
 
 try {
-    const username = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('username');
-    console.log(`Привет, ${username}!`);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('greeting', `Привет, ${username}!`);
+    const repoPath = process.cwd(); // Корень репозитория
+    console.log(`📁 Repo path: ${repoPath}`);
+
+    const files = fs__WEBPACK_IMPORTED_MODULE_0__.readdirSync(repoPath);
+    console.log("Файлы в корне репозитория:");
+    console.log(files);
+
+    // Пример: прочитать конкретный файл
+    const readmePath = __nccwpck_require__.ab + "README.md";
+    if (fs__WEBPACK_IMPORTED_MODULE_0__.existsSync(__nccwpck_require__.ab + "README.md")) {
+        const content = fs__WEBPACK_IMPORTED_MODULE_0__.readFileSync(readmePath, "utf8");
+        console.log("Содержимое README.md:");
+        console.log(content.slice(0, 200) + "..."); // первые 200 символов
+    } else {
+        console.log("README.md не найден 😅");
+    }
 } catch (error) {
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.setFailed(error.message);
+    _actions_core__WEBPACK_IMPORTED_MODULE_2__.setFailed(error.message);
 }
 
