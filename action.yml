@@ -11,6 +11,9 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Run Bash script
+    - name: Checkout repository
+      uses: actions/checkout@v5
+
+    - name: Check for Copyright
       shell: bash
       run: bash ${{ github.action_path }}/entrypoint.sh
