@@ -5,9 +5,8 @@ description: "Checks that all files contain 'Copyright'"
 
 inputs:
   copyright_line:
-    description: "Copyright"
+    description: "Copyright line"
     required: true
-    default: "© 2025 FerrumFist. All rights reserved."
 runs:
   using: "composite"
   steps:
@@ -23,4 +22,4 @@ runs:
       run: bash ${{ github.action_path }}/entrypoint.sh
       env:
         CHANGED_FILES: ${{ steps.changed.outputs.all_changed_files }}
-        COPYRIGHT_LINE: ${{ inputs.copyright_line }}
+        COPYRIGHT_LINE: "${{ inputs.copyright_line || format('© $(date +%Y) FerrumFist. All rights reserved.') }}"
