@@ -9,5 +9,8 @@ inputs:
     required: true
     default: "Вася"
 runs:
-  using: 'node20'
-  main: "dist/index.js"
+  using: "composite"
+  steps:
+    - name: Run Bash script
+      shell: bash
+      run: ./entrypoint.sh

@@ -1,0 +1,2 @@
+FILES=$(find .)
+echo "$FILES"
