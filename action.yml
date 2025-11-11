@@ -1,13 +1,12 @@
 # Copyright 2025
 
 name: "Copyright Check"
-description: "Checks that all files contain 'Copyright MyCompany'"
+description: "Checks that all files contain 'Copyright'"
 
 inputs:
-  username:
-    description: "User`s name"
+  copyright_line:
+    description: "Copyright"
     required: true
-    default: "Вася"
 runs:
   using: "composite"
   steps:
@@ -20,4 +19,7 @@ runs:
 
     - name: Check for Copyright
       shell: bash
-      run: bash ${{ github.action_path }}/entrypoint.sh "${{ steps.changed.outputs.all_changed_files }}"
+      run: bash ${{ github.action_path }}/entrypoint.sh
+      env:
+        CHANGED_FILES: ${{ steps.changed.outputs.all_changed_files }}
+        COPYRIGHT_LINE: ${{ inputs.copyright_line }}

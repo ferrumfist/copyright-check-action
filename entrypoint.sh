@@ -1,12 +1,8 @@
 #!/bin/bash
 set -e
 
-#FILES=$(find . \
-#  -path "./.git" -prune -o \
-#  -type f -print)
-#echo "$FILES"
-
-CHANGED_FILES=$1
+echo "🔍 Проверяем файлы на наличие копирайта..."
+echo "Строка для поиска: $COPYRIGHT_LINE"
 
 YEAR=$(date -u +"%Y")
 COPYRIGHT_LINE="Copyright 2013-$YEAR."
