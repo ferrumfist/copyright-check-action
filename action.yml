@@ -17,9 +17,19 @@ runs:
       id: changed
       uses: tj-actions/changed-files@v47
 
+    - name: Get current year
+      shell: bash
+      id: copyright
+      run: |
+        if [ -n "${{ inputs.copyright_line }}" ]; then
+          echo "line=${{ inputs.copyright_line }}" >> "$GITHUB_OUTPUT"
+        else
+          echo "line=Copyright 2013-$(date +%Y)." >> "$GITHUB_OUTPUT"
+        fi
+
     - name: Check for Copyright
       shell: bash
       run: bash ${{ github.action_path }}/entrypoint.sh
       env:
         CHANGED_FILES: ${{ steps.changed.outputs.all_changed_files }}
-        COPYRIGHT_LINE: "${{ inputs.copyright_line || format('© $(date +%Y) FerrumFist. All rights reserved.') }}"
+        COPYRIGHT_LINE: "${{ steps.copyright.outputs.line }}"
