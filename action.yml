@@ -18,8 +18,9 @@ runs:
     - name: Get changed files
       id: changed
       uses: tj-actions/changed-files@v47
-#      with:
+      with:
 #        separator: "\n"
+        since_last_remote_commit: 'true'
 
     - name: Get current year
       shell: bash
