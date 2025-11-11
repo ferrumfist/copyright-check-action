@@ -20,7 +20,7 @@ runs:
       uses: tj-actions/changed-files@v47
       with:
 #        separator: "\n"
-        since_last_remote_commit: 'true'
+        since_last_remote_commit: true
 
     - name: Get current year
       shell: bash
