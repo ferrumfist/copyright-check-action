@@ -4,10 +4,6 @@ name: "Copyright Check"
 description: "Checks that all files contain 'Copyright MyCompany'"
 
 inputs:
-  token:
-    description: GitHub token, defaults to GITHUB_TOKEN
-    required: false
-    default: ${{ github.token }}
   username:
     description: "User`s name"
     required: true
