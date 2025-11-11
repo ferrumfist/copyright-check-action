@@ -1,5 +1,7 @@
 #!/bin/bash
 set -e
 
-FILES=$(find .)
+FILES=$(find . \
+  -path "./.git" -prune -o \
+  -type f -print)
 echo "$FILES"
