@@ -16,8 +16,8 @@ runs:
     - name: Get changed files
       id: changed
       uses: tj-actions/changed-files@v47
-      with:
-        separator: "\n"
+#      with:
+#        separator: "\n"
 
     - name: Get current year
       shell: bash

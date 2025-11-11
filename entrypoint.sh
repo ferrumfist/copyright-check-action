@@ -9,7 +9,7 @@ echo "$CHANGED_FILES"
 
 SUPPORTED_EXTENSIONS="bat|c|cc|cd|cjs|config|cpp|cs|css|dist|go|h|hpp|htm|html|in|ini|js|l|less|map|mjs|php|phtml|pl|pm|py|sh|sj|sql|tcc|tpl|ts|tsx|vbs|wxi|wxs|xml|xsd|xsl|xslt|java|yaml|toml|yml"
 
-FILES=$(printf "%s\n" "$CHANGED_FILES" |
+FILES=$(printf "%s\n" "$CHANGED_FILES" | tr ' ' '\n' |
   grep -E "\.($SUPPORTED_EXTENSIONS)$" |
   (while read -r file; do [ -f "$file" ] && echo "$file"; done || true) |
   xargs -r grep -L "$COPYRIGHT_LINE" |
