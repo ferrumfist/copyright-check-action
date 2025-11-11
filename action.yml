@@ -9,5 +9,12 @@ inputs:
     required: true
     default: "Вася"
 runs:
-  using: 'node20'
-  main: "dist/index.js"
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v5
+
+    - name: Run JS action
+      uses: ./js-action
+      with:
+        name: ${{ inputs.username }}
