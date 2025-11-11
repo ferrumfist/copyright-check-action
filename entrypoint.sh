@@ -18,7 +18,7 @@ SUPPORTED_EXTENSIONS="bat|c|cc|cd|cjs|config|cpp|cs|css|dist|go|h|hpp|htm|html|i
 
 FILES=$(printf "%s\n" "$CHANGED_FILES" |
   grep -E "\.($SUPPORTED_EXTENSIONS)$" |
-  (while read -r file; do [ -f "$file" ] && echo "$file"; done || true) |
+  (while read -r file; do [ -f "./$file" ] && echo "$file"; done || true) |
   xargs -r grep -L "$COPYRIGHT_LINE" |
   cat )
 
