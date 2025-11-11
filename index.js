@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import core from "@actions/core";
+import core from "../@actions/core";
 
 try {
     const repoPath = process.cwd(); // Корень репозитория
