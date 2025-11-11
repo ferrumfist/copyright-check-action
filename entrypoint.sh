@@ -6,5 +6,7 @@ set -e
 #  -type f -print)
 #echo "$FILES"
 
-CHANGED_FILES=$(git diff --name-only origin/${GITHUB_BASE_REF}...origin/${GITHUB_HEAD_REF})
-ecgo "$CHANGED_FILES"
+CHANGED_FILES=$1
+
+echo "Изменённые файлы:"
+echo "$CHANGED_FILES"
