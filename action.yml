@@ -10,4 +10,4 @@ inputs:
     default: "Вася"
 runs:
   using: 'node20'
-  main: 'index.js'
+  main: "dist/index.js"
