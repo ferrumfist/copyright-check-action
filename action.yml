@@ -3,24 +3,11 @@
 name: "Copyright Check"
 description: "Checks that all files contain 'Copyright MyCompany'"
 
-on:
-  workflow_dispatch:
-    inputs:
-      copyright_line:
-        description: 'Copyright to look for in files'
-        required: false
-        default: "Copyright"
-
+inputs:
+  username:
+    description: "User`s name"
+    required: true
+    default: "Вася"
 runs:
-  using: "composite"
-  steps:
-    - name: Checkout repository
-      uses: actions/checkout@v5
-
-    - name: Check for Copyright
-      shell: bash
-      run: |
-        chmod +x ${{ github.action_path }}/check_copyright.sh
-        COPYRIGHT_LINE="${{ github.event.inputs.copyright_line }}"
-        cd ${{ github.workspace }}
-        ${{ github.action_path }}/check_copyright.sh "$COPYRIGHT_LINE"
+  using: 'node20'
+  main: 'index.js'
