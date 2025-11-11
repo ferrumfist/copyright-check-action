@@ -13,4 +13,4 @@ runs:
   steps:
     - name: Run Bash script
       shell: bash
-      run: bash ./entrypoint.sh
+      run: bash ${GITHUB_WORKSPACE}//entrypoint.sh
