@@ -7,6 +7,7 @@ inputs:
   copyright_line:
     description: "Copyright"
     required: true
+    default: "© 2025 FerrumFist. All rights reserved."
 runs:
   using: "composite"
   steps:
