@@ -27432,7 +27432,7 @@ var __webpack_exports__ = {};
 
 
 try {
-    const token = process.env.GITHUB_TOKEN;
+    const token = _actions_core__WEBPACK_IMPORTED_MODULE_2__.getInput('token') || process.env.GITHUB_TOKEN
     if (!token) {
         throw new Error("GITHUB_TOKEN не найден!");
     } else {
