@@ -13,4 +13,4 @@ runs:
   steps:
     - name: Run Bash script
       shell: bash
-      run: ./entrypoint.sh
+      run: bash ./entrypoint.sh
