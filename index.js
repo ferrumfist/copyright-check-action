@@ -3,6 +3,13 @@ import path from "path";
 import core from "@actions/core";
 
 try {
+    const token = process.env.GITHUB_TOKEN;
+    if (!token) {
+        throw new Error("GITHUB_TOKEN не найден!");
+    } else {
+        console.log('There is token');
+    }
+
     const repoPath = process.cwd(); // Корень репозитория
     console.log(`📁 Repo path: ${repoPath}`);
 
